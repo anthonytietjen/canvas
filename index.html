@@ -1,0 +1,124 @@
+
+<!doctype html>
+<html>
+<title>HTML5 Canvas Example</title>
+<head>
+	<style type="text/css">
+		#theCanvas{
+			border:1px solid silver;
+			cursor:default;
+		}
+		body{
+			margin:0px;
+			padding:20px;
+			font-family:arial;
+		}
+	</style>
+	
+	<script type="text/javascript">
+		var mouseIsPressed = false;
+		var context;
+		var theCanvas;
+		var xLast = null;
+		var yLast = null;
+		var drawMode = null;
+		
+		function init(){
+			var select_width = document.getElementById('select_width');
+			var select_color = document.getElementById('select_color');
+			var select_drawmode = document.getElementById('select_drawmode');
+		
+			theCanvas = document.getElementById('theCanvas');
+			context = theCanvas.getContext("2d");
+			context.strokeStyle = select_color.options[select_color.selectedIndex].value;
+			context.fillStyle = select_color.options[select_color.selectedIndex].value;
+			context.lineWidth = select_width.options[select_width.selectedIndex].value;
+			
+			drawMode = select_drawmode.options[select_drawmode.selectedIndex].value;
+		}
+		
+		function mouseDown(ev){
+			mouseIsPressed = true;
+		}
+		
+		function mouseUp(ev){
+			mouseIsPressed = false;
+			xLast = null;
+			yLast = null;
+		}
+		
+		function mouseMove(ev){
+			if(mouseIsPressed){
+				xNow = ev.clientX - theCanvas.offsetLeft;
+				yNow = ev.clientY - theCanvas.offsetTop;
+				
+				
+				if(xLast != null){
+					
+					if(drawMode == "stroke"){
+						context.beginPath();
+						context.moveTo(xLast,yLast);
+						context.lineTo(xNow, yNow);
+						context.stroke();
+					} else if(drawMode == "fill"){
+						context.beginPath();
+						context.moveTo(xLast,yLast);
+						context.lineTo(xLast + (context.lineWidth/2),yLast + (context.lineWidth/2));
+						context.lineTo(xNow + (context.lineWidth/2), yNow + (context.lineWidth/2));
+						context.lineTo(xNow, yNow);
+						context.lineTo(xLast, yLast);
+						context.fill();
+					}
+				}
+				
+				xLast = xNow;
+				yLast = yNow;
+			}
+		}
+	</script>
+</head>
+<body onload="init();" onmouseup="mouseUp(event)" onselectstart="return false;" style="background-color:#EEEEEE;">
+	
+	<strong>Canvas Drawing Example</strong><br/>
+	(Written by Anthony Tietjen) - <a href="https://developer.mozilla.org/en/Canvas_tutorial%3ADrawing_shapes" target="_blank">Reference</a>
+	<hr>
+	
+	<div style="margin-bottom:10px;">
+		Size: 
+		<select id="select_width" onchange="init();" style="margin-right:15px;">
+			<option selected>1</option>
+			<option>2</option>
+			<option>3</option>
+			<option>4</option>
+			<option>5</option>
+			<option>10</option>
+			<option>15</option>
+			<option>20</option>
+			<option>30</option>
+			<option>40</option>
+		</select>
+		
+		Color:
+		<select id="select_color" onchange="init();" style="margin-right:15px;" style="margin-right:15px;">
+			<option value="rgb(0,0,0)" style="background-color:black; color:white;" selected>Black</option>
+			<option value="rgb(255,0,0)" style="background-color:red;">Red</option>
+			<option value="rgb(0,255,0)" style="background-color:green; color:white;">Green</option>
+			<option value="rgb(0,0,255)" style="background-color:blue; color:white;">Blue</option>
+			<option value="rgb(255,255,0)" style="background-color:Yellow;">Yellow</option>
+		</select>
+		
+		Mode: 
+		<select id="select_drawmode" onchange="init();" style="margin-right:15px;">
+			<option value="stroke" selected>Stroke</option>
+			<option value="fill">Fill</option>
+		</select>
+		
+		<button onclick="context.fillStyle='rgb(255,255,255)'; context.fillRect(0,0,1000,500); init();">Erase</button>
+	</div>
+	
+	<div style="background-color:white; width:1000px; height:500px;">
+		<canvas id="theCanvas" height="500" width="1000" onmousedown="mouseDown(event)" onmousemove="mouseMove(event)"></canvas>
+	</div>
+
+</body>
+</html>
