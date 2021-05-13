@@ -1,0 +1,9 @@
+#theCanvas{
+  border:1px solid silver;
+  cursor:default;
+}
+body{
+  margin:0px;
+  padding:20px;
+  font-family:arial;
+}
