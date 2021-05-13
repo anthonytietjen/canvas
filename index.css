@@ -1,9 +1,27 @@
-#theCanvas{
-  border:1px solid silver;
-  cursor:default;
-}
 body{
   margin:0px;
   padding:20px;
   font-family:arial;
+}
+
+#header-container{
+  margin-bottom:10px;
+}
+
+#select_width,
+#select_color,
+#select_drawmode{
+  margin-right:15px;
+}
+
+
+#canvas-container {
+  background-color:white;
+  width: 1000px;
+  height: 500px;
+}
+
+#theCanvas{
+  border:1px solid silver;
+  cursor:default;
 }

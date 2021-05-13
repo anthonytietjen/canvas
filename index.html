@@ -1,52 +1,57 @@
 <!doctype html>
 <html>
+
 <head>
 	<title>HTML5 Canvas Example</title>
 	<link rel="stylesheet" type="text/css" href="index.css" />
 	<script src="index.js"></script>
 </head>
+
 <body onload="init();" onmouseup="mouseUp(event)" onselectstart="return false;" style="background-color:#EEEEEE;">
-	
-	<strong>Canvas Drawing Example</strong><br/>
-	(Written by Anthony Tietjen)
-	<hr>
-	
-	<div style="margin-bottom:10px;">
-		Size: 
-		<select id="select_width" onchange="init();" style="margin-right:15px;">
-			<option selected>1</option>
-			<option>2</option>
-			<option>3</option>
-			<option>4</option>
-			<option>5</option>
-			<option>10</option>
-			<option>15</option>
-			<option>20</option>
-			<option>30</option>
-			<option>40</option>
-		</select>
-		
-		Color:
-		<select id="select_color" onchange="init();" style="margin-right:15px;" style="margin-right:15px;">
-			<option value="rgb(0,0,0)" style="background-color:black; color:white;" selected>Black</option>
-			<option value="rgb(255,0,0)" style="background-color:red;">Red</option>
-			<option value="rgb(0,255,0)" style="background-color:green; color:white;">Green</option>
-			<option value="rgb(0,0,255)" style="background-color:blue; color:white;">Blue</option>
-			<option value="rgb(255,255,0)" style="background-color:Yellow;">Yellow</option>
-		</select>
-		
-		Mode: 
-		<select id="select_drawmode" onchange="init();" style="margin-right:15px;">
-			<option value="stroke" selected>Stroke</option>
-			<option value="fill">Fill</option>
-		</select>
-		
-		<button onclick="context.fillStyle='rgb(255,255,255)'; context.fillRect(0,0,1000,500); init();">Erase</button>
-	</div>
-	
-	<div style="background-color:white; width:1000px; height:500px;">
-		<canvas id="theCanvas" height="500" width="1000" onmousedown="mouseDown(event)" onmousemove="mouseMove(event)"></canvas>
+
+	<div id="header-container">
+		<strong>Canvas Drawing Example</strong><br />
+		(Written by Anthony Tietjen)
+		<hr>
+
+		<div>
+			Size:
+			<select id="select_width" onchange="init();">
+				<option selected>1</option>
+				<option>2</option>
+				<option>3</option>
+				<option>4</option>
+				<option>5</option>
+				<option>10</option>
+				<option>15</option>
+				<option>20</option>
+				<option>30</option>
+				<option>40</option>
+			</select>
+
+			Color:
+			<select id="select_color" onchange="init();">
+				<option value="rgb(0,0,0)" selected>Black</option>
+				<option value="rgb(255,0,0)">Red</option>
+				<option value="rgb(0,255,0)">Green</option>
+				<option value="rgb(0,0,255)">Blue</option>
+				<option value="rgb(255,255,0)">Yellow</option>
+			</select>
+
+			Mode:
+			<select id="select_drawmode" onchange="init();">
+				<option value="stroke" selected>Stroke</option>
+				<option value="fill">Fill</option>
+			</select>
+
+			<button onclick="erase()">Erase</button>
+		</div>
 	</div>
 
+	<div id="canvas-container" style="">
+		<canvas id="theCanvas" height="500" width="1000" onmousedown="mouseDown(event)" onmousemove="mouseMove(event)">
+		</canvas>
+	</div>
 </body>
+
 </html>
