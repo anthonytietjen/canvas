@@ -23,8 +23,7 @@ function init() {
   setCanvasRect()
 
   // Set defaults
-  setStrokeStyle();
-  setFillStyle();
+  setColor();
   setLineWidth();
   setDrawMode();
 
@@ -83,11 +82,8 @@ function mouseMove(ev) {
   }
 }
 
-function setStrokeStyle() {
+function setColor() {
   context.strokeStyle = select_color.options[select_color.selectedIndex].value;
-}
-
-function setFillStyle() {
   context.fillStyle = select_color.options[select_color.selectedIndex].value;
 }
 
