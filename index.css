@@ -72,8 +72,18 @@ h1{
   min-width: 75px;
   padding: 6px;
   border-radius: 4px;
-  border: 1px solid #333;
+  border: 1px solid #888;
   height: 30px;
+}
+
+#toolbar button {
+  border: 1px solid #0a60f5;
+  background-color: #0a60f5;
+  color: white;
+}
+
+#toolbar button:active{
+  opacity: .6;
 }
 
 #select_width,
