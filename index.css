@@ -53,6 +53,29 @@ h1{
   margin-bottom:10px;
 }
 
+#toolbar{
+  display: flex;
+}
+
+#toolbar label{
+  display: block;
+}
+
+#toolbar > div{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+#toolbar select,
+#toolbar button {
+  min-width: 75px;
+  padding: 6px;
+  border-radius: 4px;
+  border: 1px solid #333;
+  height: 30px;
+}
+
 #select_width,
 #select_color,
 #select_drawmode{

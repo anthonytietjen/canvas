@@ -4,7 +4,8 @@
 <head>
 	<title>HTML5 Canvas Example</title>
 	<link rel="stylesheet" type="text/css" href="index.css" />
-	<meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1, minimum-scale=1; user-scalable=no">
+	<meta name="viewport"
+		content="width=device-width; initial-scale=1; maximum-scale=1, minimum-scale=1; user-scalable=no">
 	<script src="index.js"></script>
 </head>
 
@@ -16,37 +17,45 @@
 			<h1>HTML5 Canvas Paint</h1> - Made by Anthony Tietjen
 			<hr>
 
-			<div>
-				Size:
-				<select id="select_width" onchange="setLineWidth();">
-					<option selected>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-					<option>10</option>
-					<option>15</option>
-					<option>20</option>
-					<option>30</option>
-					<option>40</option>
-				</select>
+			<div id="toolbar">
+				<div>
+					<label>Size</label>
+					<select id="select_width" onchange="setLineWidth();">
+						<option selected>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5</option>
+						<option>10</option>
+						<option>15</option>
+						<option>20</option>
+						<option>30</option>
+						<option>40</option>
+					</select>
+				</div>
 
-				Color:
-				<select id="select_color" onchange="setColor();">
-					<option value="rgb(0,0,0)" selected>Black</option>
-					<option value="rgb(255,0,0)">Red</option>
-					<option value="rgb(0,255,0)">Green</option>
-					<option value="rgb(0,0,255)">Blue</option>
-					<option value="rgb(255,255,0)">Yellow</option>
-				</select>
+				<div>
+					<label>Color</label>
+					<select id="select_color" onchange="setColor();">
+						<option value="rgb(0,0,0)" selected>Black</option>
+						<option value="rgb(255,0,0)">Red</option>
+						<option value="rgb(0,255,0)">Green</option>
+						<option value="rgb(0,0,255)">Blue</option>
+						<option value="rgb(255,255,0)">Yellow</option>
+					</select>
+				</div>
 
-				Mode:
-				<select id="select_drawmode" onchange="setDrawMode();">
-					<option value="stroke" selected>Stroke</option>
-					<option value="fill">Fill</option>
-				</select>
+				<div>
+					<label>Mode</label>
+					<select id="select_drawmode" onchange="setDrawMode();">
+						<option value="stroke" selected>Stroke</option>
+						<option value="fill">Fill</option>
+					</select>
+				</div>
 
-				<button onclick="erase()">Erase</button>
+				<div>
+					<button onclick="erase()">Clear</button>
+				</div>
 			</div>
 		</div>
 
