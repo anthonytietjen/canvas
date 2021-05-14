@@ -17,7 +17,10 @@ function init() {
   select_drawmode = document.getElementById('select_drawmode');
   theCanvas = document.getElementById('theCanvas');
   context = theCanvas.getContext("2d");
-  
+
+  // Set canvas rect
+  setCanvasRect()
+
   // Set defaults
   setStrokeStyle();
   setFillStyle();
@@ -28,6 +31,7 @@ function init() {
   theCanvas.addEventListener('mousedown', mouseDown);
   theCanvas.addEventListener('mousemove', mouseMove);
   window.addEventListener('mouseup', mouseUp);
+  window.addEventListener('resize', setCanvasRect);
 }
 
 function mouseDown(ev) {
@@ -81,7 +85,7 @@ function setLineWidth() {
   context.lineWidth = select_width.options[select_width.selectedIndex].value;
 }
 
-function setDrawMode(){
+function setDrawMode() {
   drawMode = select_drawmode.options[select_drawmode.selectedIndex].value;
 }
 
@@ -89,4 +93,13 @@ function erase() {
   context.fillStyle = 'rgb(255,255,255)';
   context.fillRect(0, 0, 1000, 500);
   init();
+}
+
+function setCanvasRect() {
+  theCanvas.width = 0;
+  theCanvas.height = 0;
+  setTimeout(function () {
+    theCanvas.width = theCanvas.parentNode.offsetWidth;
+    theCanvas.height = theCanvas.parentNode.offsetHeight;
+  })
 }
