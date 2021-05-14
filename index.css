@@ -2,6 +2,12 @@ body{
   margin:0px;
   padding:20px;
   font-family:arial;
+  background-color:#EEEEEE;
+}
+
+h1{
+  display: inline;
+  font-size: 16px;
 }
 
 #header-container{
@@ -13,7 +19,6 @@ body{
 #select_drawmode{
   margin-right:15px;
 }
-
 
 #canvas-container {
   background-color:white;

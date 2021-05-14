@@ -7,11 +7,10 @@
 	<script src="index.js"></script>
 </head>
 
-<body onload="init();" onmouseup="mouseUp(event)" onselectstart="return false;" style="background-color:#EEEEEE;">
+<body onselectstart="return false;">
 
 	<div id="header-container">
-		<strong>Canvas Drawing Example</strong><br />
-		(Written by Anthony Tietjen)
+		<h1>HTML5 Canvas Paint</h1> - Made by Anthony Tietjen
 		<hr>
 
 		<div>
@@ -48,9 +47,8 @@
 		</div>
 	</div>
 
-	<div id="canvas-container" style="">
-		<canvas id="theCanvas" height="500" width="1000" onmousedown="mouseDown(event)" onmousemove="mouseMove(event)">
-		</canvas>
+	<div id="canvas-container">
+		<canvas id="theCanvas" height="500" width="1000" />
 	</div>
 </body>
 
