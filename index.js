@@ -7,6 +7,7 @@ var drawMode = null;
 var select_width;
 var select_color;
 var select_drawmode;
+var isTouchScreen = 'ontouchstart' in window;
 
 window.addEventListener('load', init);
 
@@ -28,9 +29,15 @@ function init() {
   setDrawMode();
 
   // Add event listeners
-  theCanvas.addEventListener('mousedown', mouseDown);
-  theCanvas.addEventListener('mousemove', mouseMove);
-  window.addEventListener('mouseup', mouseUp);
+  if (isTouchScreen) {
+    theCanvas.addEventListener('touchstart', mouseDown);
+    theCanvas.addEventListener('touchmove', mouseMove);
+    window.addEventListener('touchend', mouseUp);
+  } else {
+    theCanvas.addEventListener('mousedown', mouseDown);
+    theCanvas.addEventListener('mousemove', mouseMove);
+    window.addEventListener('mouseup', mouseUp);
+  }
   window.addEventListener('resize', setCanvasRect);
 }
 
@@ -46,12 +53,15 @@ function mouseUp(ev) {
 
 function mouseMove(ev) {
   if (mouseIsPressed) {
-    xNow = ev.clientX - theCanvas.offsetLeft;
-    yNow = ev.clientY - theCanvas.offsetTop;
-
+    if (isTouchScreen) {
+      xNow = ev.touches[0].clientX - theCanvas.offsetLeft;
+      yNow = ev.touches[0].clientY - theCanvas.offsetTop;
+    } else {
+      xNow = ev.clientX - theCanvas.offsetLeft;
+      yNow = ev.clientY - theCanvas.offsetTop;
+    }
 
     if (xLast != null) {
-
       if (drawMode == "stroke") {
         context.beginPath();
         context.moveTo(xLast, yLast);
