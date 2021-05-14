@@ -55,6 +55,7 @@ h1{
 
 #toolbar{
   display: flex;
+  margin-top: 15px;
 }
 
 #toolbar label{
