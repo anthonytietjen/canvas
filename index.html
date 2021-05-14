@@ -18,7 +18,7 @@
 
 			<div>
 				Size:
-				<select id="select_width" onchange="init();">
+				<select id="select_width" onchange="setLineWidth();">
 					<option selected>1</option>
 					<option>2</option>
 					<option>3</option>
@@ -32,7 +32,7 @@
 				</select>
 
 				Color:
-				<select id="select_color" onchange="init();">
+				<select id="select_color" onchange="setFillStyle();">
 					<option value="rgb(0,0,0)" selected>Black</option>
 					<option value="rgb(255,0,0)">Red</option>
 					<option value="rgb(0,255,0)">Green</option>
@@ -41,7 +41,7 @@
 				</select>
 
 				Mode:
-				<select id="select_drawmode" onchange="init();">
+				<select id="select_drawmode" onchange="setStrokeStyle();">
 					<option value="stroke" selected>Stroke</option>
 					<option value="fill">Fill</option>
 				</select>
