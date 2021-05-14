@@ -9,46 +9,49 @@
 
 <body onselectstart="return false;">
 
-	<div id="header-container">
-		<h1>HTML5 Canvas Paint</h1> - Made by Anthony Tietjen
-		<hr>
+	<div id="container">
 
-		<div>
-			Size:
-			<select id="select_width" onchange="init();">
-				<option selected>1</option>
-				<option>2</option>
-				<option>3</option>
-				<option>4</option>
-				<option>5</option>
-				<option>10</option>
-				<option>15</option>
-				<option>20</option>
-				<option>30</option>
-				<option>40</option>
-			</select>
+		<div id="header-container">
+			<h1>HTML5 Canvas Paint</h1> - Made by Anthony Tietjen
+			<hr>
 
-			Color:
-			<select id="select_color" onchange="init();">
-				<option value="rgb(0,0,0)" selected>Black</option>
-				<option value="rgb(255,0,0)">Red</option>
-				<option value="rgb(0,255,0)">Green</option>
-				<option value="rgb(0,0,255)">Blue</option>
-				<option value="rgb(255,255,0)">Yellow</option>
-			</select>
+			<div>
+				Size:
+				<select id="select_width" onchange="init();">
+					<option selected>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+					<option>10</option>
+					<option>15</option>
+					<option>20</option>
+					<option>30</option>
+					<option>40</option>
+				</select>
 
-			Mode:
-			<select id="select_drawmode" onchange="init();">
-				<option value="stroke" selected>Stroke</option>
-				<option value="fill">Fill</option>
-			</select>
+				Color:
+				<select id="select_color" onchange="init();">
+					<option value="rgb(0,0,0)" selected>Black</option>
+					<option value="rgb(255,0,0)">Red</option>
+					<option value="rgb(0,255,0)">Green</option>
+					<option value="rgb(0,0,255)">Blue</option>
+					<option value="rgb(255,255,0)">Yellow</option>
+				</select>
 
-			<button onclick="erase()">Erase</button>
+				Mode:
+				<select id="select_drawmode" onchange="init();">
+					<option value="stroke" selected>Stroke</option>
+					<option value="fill">Fill</option>
+				</select>
+
+				<button onclick="erase()">Erase</button>
+			</div>
 		</div>
-	</div>
 
-	<div id="canvas-container">
-		<canvas id="theCanvas" height="500" width="1000" />
+		<div id="canvas-container">
+			<canvas id="theCanvas" height="500" width="1000" />
+		</div>
 	</div>
 </body>
 
